@@ -1,0 +1,3 @@
+U16_Interfaces_graficas_avanzadas.EventosTecladoRaton$1
+U16_Interfaces_graficas_avanzadas.EventosTecladoRaton$2
+U16_Interfaces_graficas_avanzadas.EventosTecladoRaton

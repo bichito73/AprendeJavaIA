@@ -1,0 +1,2 @@
+U12_Excepciones.ExcepcionPropia
+U12_Excepciones.MiExcepcion
