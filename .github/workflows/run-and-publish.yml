@@ -1,0 +1,38 @@
+name: Ejecutar ejercicios y publicar salidas
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: write   # necesario para commitear outputs
+
+jobs:
+  build-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Instalar Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Ejecutar ejercicios
+        run: bash ./run_exercises.sh
+
+      - name: Subir outputs como artefacto (opcional)
+        uses: actions/upload-artifact@v4
+        with:
+          name: outputs
+          path: outputs/
+
+      - name: Commit automático de outputs al repo
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "CI: actualiza outputs de ejercicios"
+          file_pattern: outputs/**
