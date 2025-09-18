@@ -2,3 +2,6 @@
 /dist/
 /construir/
 *.class
+
+# NetBeans privado
+nbproject/private/
